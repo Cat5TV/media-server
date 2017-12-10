@@ -7,11 +7,14 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C2518248EEA14886
 apt update
 apt -y install oracle-java8-installer jsvc
 
-wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v1.1.1/ant-media-server-1.1.1.zip -O /tmp/ams.zip
-cd /tmp
-unzip ams.zip
+# wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v1.1.1/ant-media-server-1.1.1.zip -O /tmp/ams.zip
+# cd /tmp
+# unzip ams.zip
 
+cd data
+cat ams.tar.gz.* | tar xzvf -
 mv ant-media-server /usr/local/antmedia
+
 cp /usr/local/antmedia/antmedia /etc/init.d/
 update-rc.d antmedia defaults
 update-rc.d antmedia enable
